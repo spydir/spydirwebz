@@ -1,0 +1,36 @@
+{
+  "puzzle_number": 1,
+  "validation_timestamp": "2025-07-31T23:30:09.491627",
+  "validation_result": {
+    "status": "ambiguous",
+    "solutions": [
+      [
+        "CrimsonTide",
+        "Zero-Day Exploit",
+        "Cloud Storage Bucket"
+      ],
+      [
+        "BlackViper",
+        "SQL Injection",
+        "Payroll API"
+      ]
+    ],
+    "explanation": "The clues allow 2 different valid solutions. A good puzzle should have exactly one solution.",
+    "found_solutions": [
+      "CrimsonTide used Zero-Day Exploit against Cloud Storage Bucket",
+      "BlackViper used SQL Injection against Payroll API"
+    ],
+    "suggestions": [
+      "Add more clues to eliminate alternative solutions",
+      "Use negation clues to rule out specific actor-vector combinations",
+      "Add relational clues to restrict which assets can be accessed",
+      "Consider using conditional clues to create stronger constraints"
+    ]
+  },
+  "summary": {
+    "status": "ambiguous",
+    "valid": false,
+    "has_explanation": true,
+    "has_suggestions": true
+  }
+}

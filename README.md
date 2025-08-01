@@ -1,23 +1,25 @@
 # 🕷️ SpydirWebz Puzzle Creator & Validator
 
-A comprehensive tool for creating and validating cybersecurity logic puzzles. This project provides both a puzzle creation interface and an automated validation system using Z3 theorem prover to ensure puzzles are logically consistent and uniquely solvable.
+A comprehensive tool for automatically generating and validating cybersecurity logic puzzles. This project provides an automated puzzle generation system using Z3 theorem prover to ensure puzzles are logically consistent and uniquely solvable.
 
 ## ✨ Features
 
-- **Interactive Puzzle Creation**: User-friendly CLI interface for creating cybersecurity puzzles
+- **Automatic Puzzle Generation**: Generates complete cybersecurity puzzles without user interaction
 - **Automated Validation**: Z3-based logic validation ensuring puzzles are:
   - Logically consistent
   - Uniquely solvable (exactly one Actor/Vector/Asset triplet)
   - Permits inference of stolen data via clues
-- **Multiple Clue Types**: Support for various clue types:
+- **Multiple Clue Types**: Automatically generates two clues of each type:
   - Negation clues
   - Affirmative clues
   - Relational clues
   - Conditional clues
   - Data inference clues
 - **Structured Data**: Clean, type-safe data structures using Python dataclasses
-- **Error Handling**: Robust error handling and user input validation
+- **Error Handling**: Robust error handling and validation
 - **File Management**: Automatic puzzle numbering and JSON file generation
+- **Data Integrity**: Automatic duplicate detection and removal from data sources
+- **Uniqueness Validation**: Ensures all puzzle elements (actors, vectors, assets, data) are unique
 
 ## 🏗️ Architecture
 
@@ -26,9 +28,10 @@ The project is organized into several key components:
 ### Core Classes
 
 - **`PuzzleCreator`**: Main orchestration class for puzzle creation
-- **`UserInterface`**: Handles all user interaction and input validation
+- **`AutomaticPuzzleGenerator`**: Generates puzzles automatically
 - **`PuzzleManager`**: Manages file operations and puzzle storage
 - **`PuzzleConfig`**: Centralized configuration management
+- **`DataManager`**: Handles data loading and caching
 
 ### Data Structures
 
@@ -73,24 +76,24 @@ Run the puzzle creator:
 python puzzle_creator.py
 ```
 
-The tool will guide you through:
+The tool will automatically:
 
-1. **Basic Information**:
+1. **Prompt for Basic Information**:
    - Author name/alias
    - Puzzle difficulty (easy/medium/impossible)
 
-2. **Puzzle Elements** (3-6 items each):
+2. **Generate Puzzle Elements** (3 items each):
    - Threat Actors (e.g., "GhostShell", "ZeroShadow")
    - Attack Vectors (e.g., "SQL Injection", "Phishing")
    - Compromised Assets (e.g., "Email Server", "HR Portal")
    - Stolen Data (e.g., "Source Code", "Customer Data")
 
-3. **Solution Definition**:
-   - Select the correct actor, vector, asset, and stolen data
+3. **Create Solution**:
+   - Randomly select the correct actor, vector, asset, and stolen data
 
-4. **Clue Creation**:
-   - Add multiple clues using different types
-   - Each clue type has specific logic patterns
+4. **Generate Clues**:
+   - Automatically create 10 clues (2 of each type)
+   - Ensure logical consistency and unique solution
 
 5. **Validation & Saving**:
    - Automatic validation using Z3 theorem prover
@@ -100,6 +103,7 @@ The tool will guide you through:
 
 ```
 🕷️ Welcome to the SpydirWebz Puzzle Creator
+🤖 Automatic Mode - Generating puzzle...
 
 Enter your name or alias: CyberPuzzleMaster
 Select Difficulty:
@@ -108,74 +112,29 @@ Select Difficulty:
 3) impossible
 Difficulty (1-3): 2
 
-Enter Threat Actors (3-6 items, comma-separated):
-Threat Actors: GhostShell, ZeroShadow, DarkPhantom, CyberNinja
+🤖 Generating automatic puzzle...
+✅ Selected 3 actors: GhostShell, ZeroShadow, DarkPhantom
+✅ Selected 3 vectors: SQL Injection, Phishing, RDP Exploit
+✅ Selected 3 assets: Email Server, HR Portal, Finance Database
+✅ Selected data type: Source Code
+✅ All puzzle elements are unique
+🎯 Solution: GhostShell used SQL Injection against Email Server
 
-Enter Attack Vectors (3-6 items, comma-separated):
-Attack Vectors: SQL Injection, Phishing, RDP Exploit, XSS
-
-Enter Compromised Assets (3-6 items, comma-separated):
-Compromised Assets: Email Server, HR Portal, Finance Database, Web Server
-
-Enter Stolen Data (3-6 items, comma-separated):
-Stolen Data: Source Code, Customer Data, Employee Records, Financial Data
-
-Now choose the correct solution:
-Select Actor:
-1) GhostShell
-2) ZeroShadow
-3) DarkPhantom
-4) CyberNinja
-Actor (1-4): 2
-
-Select Vector:
-1) SQL Injection
-2) Phishing
-3) RDP Exploit
-4) XSS
-Vector (1-4): 3
-
-Select Asset:
-1) Email Server
-2) HR Portal
-3) Finance Database
-4) Web Server
-Asset (1-4): 3
-
-Select Stolen Data:
-1) Source Code
-2) Customer Data
-3) Employee Records
-4) Financial Data
-Stolen Data (1-4): 4
-
-Add a clue (select type):
- 1) Negation
- 2) Affirmative
- 3) Relational
- 4) Conditional
- 5) Data Inference
-Type (1-5): 1
-
-Select Actor:
-1) GhostShell
-2) ZeroShadow
-3) DarkPhantom
-4) CyberNinja
-Actor (1-4): 1
-
-Select Vector:
-1) SQL Injection
-2) Phishing
-3) RDP Exploit
-4) XSS
-Vector (1-4): 1
-
-Add another clue? (y/n): n
+🔍 Generated clue 1: ZeroShadow did not use SQL Injection.
+🔍 Generated clue 2: DarkPhantom did not use Phishing.
+🔍 Generated clue 3: SQL Injection was used against the HR Portal.
+🔍 Generated clue 4: RDP Exploit was used against the Finance Database.
+🔍 Generated clue 5: The actor that used SQL Injection did not access the Finance Database.
+🔍 Generated clue 6: The actor that used Phishing did not access the Email Server.
+🔍 Generated clue 7: If ZeroShadow used SQL Injection, then they accessed the HR Portal.
+🔍 Generated clue 8: If DarkPhantom used RDP Exploit, then they accessed the Finance Database.
+🔍 Generated clue 9: Only attacks using SQL Injection resulted in theft of Source Code.
+🔍 Generated clue 10: Only attacks using Phishing resulted in theft of Source Code.
 
 🧪 Validating puzzle...
 ✅ Puzzle is valid and uniquely solvable.
-📁 Puzzle saved to puzzles/web_1.json
+📁 Puzzle saved to puzzles/web_1_draft.json
+📁 Validation results saved to puzzles/web_1_review.json
 ```
 
 ## 📁 File Structure
@@ -190,8 +149,17 @@ spydirwebz/
 ├── tests/               # Test files
 │   ├── tests_easy.py
 │   └── tests_impossible.py
+├── data/                # Data source files
+│   ├── data_threat_actors.json
+│   ├── data_attack_vectors.json
+│   ├── data_assets.json
+│   └── data_datatypes.json
 └── puzzles/             # Generated puzzle files
-    └── web_*.json       # Puzzle JSON files
+    ├── web_1_draft.json       # Puzzle JSON files
+    ├── web_1_review.json      # Validation results
+    ├── web_2_draft.json
+    ├── web_2_review.json
+    └── ...
 ```
 
 ## 🧪 Validation Logic
@@ -208,6 +176,42 @@ The validation system uses Z3 theorem prover to:
    - Uniqueness (exactly one solution exists)
    - Solution correctness (matches declared solution)
 
+### Validation Output
+
+The system now provides comprehensive validation feedback:
+
+- **Human-readable explanations** of validation issues
+- **Specific suggestions** for fixing problems
+- **Detailed analysis** of logical vs declared solutions
+- **Automatic file saving** of both puzzles and validation results
+
+### File Output Structure
+
+For each puzzle created, two files are generated:
+
+1. **`web_N.json`** - The puzzle definition
+2. **`validation_web_N.json`** - Validation results with metadata
+
+Example validation output:
+```json
+{
+  "puzzle_number": 1,
+  "validation_timestamp": "2024-01-15T10:30:45.123456",
+  "validation_result": {
+    "status": "valid",
+    "explanation": "The puzzle is logically consistent and has exactly one solution...",
+    "solution": {...},
+    "validation_summary": {...}
+  },
+  "summary": {
+    "status": "valid",
+    "valid": true,
+    "has_explanation": true,
+    "has_suggestions": false
+  }
+}
+```
+
 ### Clue Type Logic
 
 - **Negation**: `Actor A did not use Vector V`
@@ -215,6 +219,26 @@ The validation system uses Z3 theorem prover to:
 - **Relational**: `Actor using Vector V did not access Asset S`
 - **Conditional**: `If Actor A used Vector V, then they accessed Asset S`
 - **Data Inference**: `Only attacks using Vector V resulted in theft of Data D`
+
+## 🔒 Data Integrity
+
+The system ensures data integrity through multiple validation layers:
+
+### Uniqueness Enforcement
+- **Data Sources**: Automatically removes duplicates from JSON data files
+- **Automatic Generation**: Ensures unique items in automatically generated puzzles
+- **Validation**: Runtime checks verify all puzzle elements are unique
+
+### Duplicate Detection
+- **Warning Messages**: Alerts users when duplicates are found and removed
+- **Error Prevention**: Stops puzzle creation if duplicates are detected
+- **Data Cleaning**: Automatically cleans data sources on load
+
+### Example Validation
+```
+⚠️  Warning: Removed 2 duplicate entries from data_threat_actors.json
+✅ All puzzle elements are unique
+```
 
 ## 🧪 Testing
 
@@ -238,7 +262,9 @@ Key configuration options in `PuzzleConfig`:
 - `MIN_ITEMS`: Minimum items per category (default: 3)
 - `MAX_ITEMS`: Maximum items per category (default: 6)
 - `PUZZLES_DIR`: Directory for storing puzzles (default: "puzzles")
-- `PUZZLE_FILE_PATTERN`: File naming pattern (default: "web_*.json")
+- `PUZZLE_FILE_PATTERN`: File naming pattern (default: "web_*_draft.json")
+- `AUTO_ITEMS_PER_CATEGORY`: Items per category in automatic mode (default: 3)
+- `AUTO_CLUES_COUNT`: Number of clues in automatic mode (default: 10)
 
 ## 🤝 Contributing
 

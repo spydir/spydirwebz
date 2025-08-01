@@ -1,0 +1,70 @@
+{
+  "author": "spydir",
+  "difficulty": "easy",
+  "actors": [
+    "CrimsonTide",
+    "LazarusWolf",
+    "NightCradle"
+  ],
+  "vectors": [
+    "Credential Stuffing",
+    "RDP Exploit",
+    "Malicious Macro"
+  ],
+  "assets": [
+    "Cloud Storage Bucket",
+    "Source Repository",
+    "Email Gateway"
+  ],
+  "stolen_data": [
+    "Internal Emails"
+  ],
+  "solution": {
+    "actor": "CrimsonTide",
+    "vector": "Credential Stuffing",
+    "asset": "Source Repository",
+    "stolen_data": "Internal Emails"
+  },
+  "clues": [
+    {
+      "text": "CrimsonTide did not use Malicious Macro.",
+      "type": "negation"
+    },
+    {
+      "text": "LazarusWolf did not use Credential Stuffing.",
+      "type": "negation"
+    },
+    {
+      "text": "RDP Exploit was used against the Cloud Storage Bucket.",
+      "type": "affirmative"
+    },
+    {
+      "text": "RDP Exploit was used against the Source Repository.",
+      "type": "affirmative"
+    },
+    {
+      "text": "The actor that used RDP Exploit did not access the Cloud Storage Bucket.",
+      "type": "relational"
+    },
+    {
+      "text": "The actor that used Credential Stuffing did not access the Email Gateway.",
+      "type": "relational"
+    },
+    {
+      "text": "If LazarusWolf used Credential Stuffing, then they accessed the Source Repository.",
+      "type": "conditional"
+    },
+    {
+      "text": "If NightCradle used Credential Stuffing, then they accessed the Cloud Storage Bucket.",
+      "type": "conditional"
+    },
+    {
+      "text": "Only attacks using Credential Stuffing resulted in theft of Internal Emails.",
+      "type": "data_inference"
+    },
+    {
+      "text": "Only attacks using RDP Exploit resulted in theft of Internal Emails.",
+      "type": "data_inference"
+    }
+  ]
+}
