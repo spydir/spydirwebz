@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle #1 - SpydirWebz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← Back to Puzzles</a>
+            <h1>Puzzle #1</h1>
+            <div class="puzzle-meta">
+                <span class="difficulty-badge easy">Easy</span>
+                <span class="author">by spydir</span>
+            </div>
+        </header>
+        
+        <main class="puzzle-content">
+            <!-- Logic Grid Section -->
+            <div class="logic-grid-section">
+                <h2>Logic Grid</h2>
+                <div class="logic-grid-container">
+                    <!-- Murdle-style connected elbow grid -->
+                    <div class="murdle-elbow-grid">
+                        <!-- Top section with shared actor headers -->
+                        <div class="grid-top-row">
+                            <!-- Top-left: Vectors vs Actors -->
+                            <div class="grid-section top-left">
+                                <div class="grid-header-row">
+                                    <div class="corner-cell"></div>
+                                    <div class="header-cell actor-header">C</div>
+                                    <div class="header-cell actor-header">L</div>
+                                    <div class="header-cell actor-header">N</div>
+                                </div>
+                                <div class="grid-row">
+                                    <div class="header-cell vector-header">C</div>
+                                    <div class="grid-cell" data-actor="CrimsonTide" data-vector="Credential Stuffing"></div>
+                                    <div class="grid-cell" data-actor="LazarusWolf" data-vector="Credential Stuffing"></div>
+                                    <div class="grid-cell" data-actor="NightCradle" data-vector="Credential Stuffing"></div>
+                                </div>
+                                <div class="grid-row">
+                                    <div class="header-cell vector-header">R</div>
+                                    <div class="grid-cell" data-actor="CrimsonTide" data-vector="RDP Exploit"></div>
+                                    <div class="grid-cell" data-actor="LazarusWolf" data-vector="RDP Exploit"></div>
+                                    <div class="grid-cell" data-actor="NightCradle" data-vector="RDP Exploit"></div>
+                                </div>
+                                <div class="grid-row">
+                                    <div class="header-cell vector-header">M</div>
+                                    <div class="grid-cell" data-actor="CrimsonTide" data-vector="Malicious Macro"></div>
+                                    <div class="grid-cell" data-actor="LazarusWolf" data-vector="Malicious Macro"></div>
+                                    <div class="grid-cell" data-actor="NightCradle" data-vector="Malicious Macro"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Top-right: Assets vs Actors -->
+                            <div class="grid-section top-right">
+                                <div class="grid-header-row">
+                                    <div class="header-cell actor-header">C</div>
+                                    <div class="header-cell actor-header">L</div>
+                                    <div class="header-cell actor-header">N</div>
+                                </div>
+                                <div class="grid-row">
+                                    <div class="grid-cell" data-actor="CrimsonTide" data-asset="Cloud Storage Bucket"></div>
+                                    <div class="grid-cell" data-actor="LazarusWolf" data-asset="Cloud Storage Bucket"></div>
+                                    <div class="grid-cell" data-actor="NightCradle" data-asset="Cloud Storage Bucket"></div>
+                                </div>
+                                <div class="grid-row">
+                                    <div class="grid-cell" data-actor="CrimsonTide" data-asset="Source Repository"></div>
+                                    <div class="grid-cell" data-actor="LazarusWolf" data-asset="Source Repository"></div>
+                                    <div class="grid-cell" data-actor="NightCradle" data-asset="Source Repository"></div>
+                                </div>
+                                <div class="grid-row">
+                                    <div class="grid-cell" data-actor="CrimsonTide" data-asset="Email Gateway"></div>
+                                    <div class="grid-cell" data-actor="LazarusWolf" data-asset="Email Gateway"></div>
+                                    <div class="grid-cell" data-actor="NightCradle" data-asset="Email Gateway"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bottom: Assets vs Vectors -->
+                        <div class="grid-section bottom">
+                            <div class="grid-row">
+                                <div class="header-cell asset-header">C</div>
+                                <div class="grid-cell" data-vector="Credential Stuffing" data-asset="Cloud Storage Bucket"></div>
+                                <div class="grid-cell" data-vector="RDP Exploit" data-asset="Cloud Storage Bucket"></div>
+                                <div class="grid-cell" data-vector="Malicious Macro" data-asset="Cloud Storage Bucket"></div>
+                            </div>
+                            <div class="grid-row">
+                                <div class="header-cell asset-header">S</div>
+                                <div class="grid-cell" data-vector="Credential Stuffing" data-asset="Source Repository"></div>
+                                <div class="grid-cell" data-vector="RDP Exploit" data-asset="Source Repository"></div>
+                                <div class="grid-cell" data-vector="Malicious Macro" data-asset="Source Repository"></div>
+                            </div>
+                            <div class="grid-row">
+                                <div class="header-cell asset-header">E</div>
+                                <div class="grid-cell" data-vector="Credential Stuffing" data-asset="Email Gateway"></div>
+                                <div class="grid-cell" data-vector="RDP Exploit" data-asset="Email Gateway"></div>
+                                <div class="grid-cell" data-vector="Malicious Macro" data-asset="Email Gateway"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Elements Section -->
+            <div class="elements-section">
+                <div class="element-category">
+                    <h3>WHO?</h3>
+                    <div class="element-list">
+                        <div class="element">CrimsonTide</div>
+<div class="element">LazarusWolf</div>
+<div class="element">NightCradle</div>
+                    </div>
+                </div>
+                
+                <div class="element-category">
+                    <h3>HOW?</h3>
+                    <div class="element-list">
+                        <div class="element">Credential Stuffing</div>
+<div class="element">RDP Exploit</div>
+<div class="element">Malicious Macro</div>
+                    </div>
+                </div>
+                
+                <div class="element-category">
+                    <h3>WHERE?</h3>
+                    <div class="element-list">
+                        <div class="element">Cloud Storage Bucket</div>
+<div class="element">Source Repository</div>
+<div class="element">Email Gateway</div>
+                    </div>
+                </div>
+                
+                <div class="element-category">
+                    <h3>WHY?</h3>
+                    <div class="element-list">
+                        <div class="element">Internal Emails</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Clues Section -->
+            <div class="clues-section">
+                <h2>Clues</h2>
+                <div class="clues-list">
+                    
+                <div class="clue">
+                    <div class="clue-header">
+                        <span class="clue-number">#1</span>
+                        <span class="clue-type">Negation</span>
+                    </div>
+                    <div class="clue-text">CrimsonTide did not use Malicious Macro.</div>
+                </div>
+            
+
+                <div class="clue">
+                    <div class="clue-header">
+                        <span class="clue-number">#2</span>
+                        <span class="clue-type">Negation</span>
+                    </div>
+                    <div class="clue-text">LazarusWolf did not use Credential Stuffing.</div>
+                </div>
+            
+
+                <div class="clue">
+                    <div class="clue-header">
+                        <span class="clue-number">#3</span>
+                        <span class="clue-type">Affirmative</span>
+                    </div>
+                    <div class="clue-text">RDP Exploit was used against the Cloud Storage Bucket.</div>
+                </div>
+            
+
+                <div class="clue">
+                    <div class="clue-header">
+                        <span class="clue-number">#4</span>
+                        <span class="clue-type">Affirmative</span>
+                    </div>
+                    <div class="clue-text">RDP Exploit was used against the Source Repository.</div>
+                </div>
+            
+
+                <div class="clue">
+                    <div class="clue-header">
+                        <span class="clue-number">#5</span>
+                        <span class="clue-type">Relational</span>
+                    </div>
+                    <div class="clue-text">The actor that used RDP Exploit did not access the Cloud Storage Bucket.</div>
+                </div>
+            
+
+                <div class="clue">
+                    <div class="clue-header">
+                        <span class="clue-number">#6</span>
+                        <span class="clue-type">Relational</span>
+                    </div>
+                    <div class="clue-text">The actor that used Credential Stuffing did not access the Email Gateway.</div>
+                </div>
+            
+
+                <div class="clue">
+                    <div class="clue-header">
+                        <span class="clue-number">#7</span>
+                        <span class="clue-type">Conditional</span>
+                    </div>
+                    <div class="clue-text">If LazarusWolf used Credential Stuffing, then they accessed the Source Repository.</div>
+                </div>
+            
+
+                <div class="clue">
+                    <div class="clue-header">
+                        <span class="clue-number">#8</span>
+                        <span class="clue-type">Conditional</span>
+                    </div>
+                    <div class="clue-text">If NightCradle used Credential Stuffing, then they accessed the Cloud Storage Bucket.</div>
+                </div>
+            
+
+                <div class="clue">
+                    <div class="clue-header">
+                        <span class="clue-number">#9</span>
+                        <span class="clue-type">Data_Inference</span>
+                    </div>
+                    <div class="clue-text">Only attacks using Credential Stuffing resulted in theft of Internal Emails.</div>
+                </div>
+            
+
+                <div class="clue">
+                    <div class="clue-header">
+                        <span class="clue-number">#10</span>
+                        <span class="clue-type">Data_Inference</span>
+                    </div>
+                    <div class="clue-text">Only attacks using RDP Exploit resulted in theft of Internal Emails.</div>
+                </div>
+            
+                </div>
+            </div>
+            
+            <!-- Solution Section -->
+            <div class="solution-section">
+                <h2>Your Solution</h2>
+                <div class="solution-form">
+                    <div class="solution-row">
+                        <label>WHO?</label>
+                        <select id="solution-actor">
+                            <option value="">Select actor...</option>
+                            <option value="CrimsonTide">CrimsonTide</option>
+<option value="LazarusWolf">LazarusWolf</option>
+<option value="NightCradle">NightCradle</option>
+                        </select>
+                    </div>
+                    <div class="solution-row">
+                        <label>HOW?</label>
+                        <select id="solution-vector">
+                            <option value="">Select vector...</option>
+                            <option value="Credential Stuffing">Credential Stuffing</option>
+<option value="RDP Exploit">RDP Exploit</option>
+<option value="Malicious Macro">Malicious Macro</option>
+                        </select>
+                    </div>
+                    <div class="solution-row">
+                        <label>WHERE?</label>
+                        <select id="solution-asset">
+                            <option value="">Select asset...</option>
+                            <option value="Cloud Storage Bucket">Cloud Storage Bucket</option>
+<option value="Source Repository">Source Repository</option>
+<option value="Email Gateway">Email Gateway</option>
+                        </select>
+                    </div>
+                    <div class="solution-row">
+                        <label>WHY?</label>
+                        <select id="solution-data">
+                            <option value="">Select data...</option>
+                            <option value="Internal Emails">Internal Emails</option>
+                        </select>
+                    </div>
+                    <button id="check-solution" class="check-button">Check Solution</button>
+                </div>
+                <div id="solution-result" class="solution-result"></div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 SpydirWebz</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Embed puzzle data for JavaScript
+        const puzzleData = {"author": "spydir", "difficulty": "easy", "actors": ["CrimsonTide", "LazarusWolf", "NightCradle"], "vectors": ["Credential Stuffing", "RDP Exploit", "Malicious Macro"], "assets": ["Cloud Storage Bucket", "Source Repository", "Email Gateway"], "stolen_data": ["Internal Emails"], "solution": {"actor": "CrimsonTide", "vector": "Credential Stuffing", "asset": "Source Repository", "stolen_data": "Internal Emails"}, "clues": [{"text": "CrimsonTide did not use Malicious Macro.", "type": "negation"}, {"text": "LazarusWolf did not use Credential Stuffing.", "type": "negation"}, {"text": "RDP Exploit was used against the Cloud Storage Bucket.", "type": "affirmative"}, {"text": "RDP Exploit was used against the Source Repository.", "type": "affirmative"}, {"text": "The actor that used RDP Exploit did not access the Cloud Storage Bucket.", "type": "relational"}, {"text": "The actor that used Credential Stuffing did not access the Email Gateway.", "type": "relational"}, {"text": "If LazarusWolf used Credential Stuffing, then they accessed the Source Repository.", "type": "conditional"}, {"text": "If NightCradle used Credential Stuffing, then they accessed the Cloud Storage Bucket.", "type": "conditional"}, {"text": "Only attacks using Credential Stuffing resulted in theft of Internal Emails.", "type": "data_inference"}, {"text": "Only attacks using RDP Exploit resulted in theft of Internal Emails.", "type": "data_inference"}], "puzzle_number": 1};
+    </script>
+    <script src="puzzle-script.js"></script>
+</body>
+</html>

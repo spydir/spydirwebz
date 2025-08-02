@@ -99,6 +99,68 @@ The tool will automatically:
    - Automatic validation using Z3 theorem prover
    - Save to JSON file if valid
 
+### Generating a Website
+
+Create a static website from your puzzles:
+
+```bash
+python website_generator.py
+```
+
+This generates a complete static website in the `website/` directory that can be deployed to:
+- **GitHub Pages** (recommended - free and secure)
+- **Netlify** 
+- **Vercel**
+- **Any static hosting service**
+
+The website includes:
+- Interactive puzzle interface
+- No authentication required
+- Responsive design
+- Client-side solution validation
+
+## 🌐 Website Deployment
+
+### Quick GitHub Pages Deployment
+
+1. **Generate the website**:
+   ```bash
+   python website_generator.py
+   ```
+
+2. **Create a new GitHub repository** for the website
+
+3. **Push the website files**:
+   ```bash
+   cd website
+   git init
+   git add .
+   git commit -m "Initial website deployment"
+   git remote add origin https://github.com/yourusername/spydirwebz-website.git
+   git push -u origin main
+   ```
+
+4. **Enable GitHub Pages**:
+   - Go to repository Settings → Pages
+   - Select "Deploy from a branch"
+   - Choose "main" branch and "/ (root)" folder
+   - Click "Save"
+
+Your website will be available at: `https://yourusername.github.io/spydirwebz-website/`
+
+### Updating the Website
+
+When you create new puzzles, regenerate the website:
+
+```bash
+python website_generator.py
+git add .
+git commit -m "Add new puzzles"
+git push
+```
+
+GitHub Pages will automatically rebuild with the new puzzles.
+
 ### Example Session
 
 ```
@@ -143,6 +205,7 @@ Difficulty (1-3): 2
 spydirwebz/
 ├── puzzle_creator.py      # Main puzzle creation tool
 ├── logic_validator.py     # Z3-based validation logic
+├── website_generator.py   # Static website generator
 ├── requirements.txt       # Python dependencies
 ├── README.md             # This file
 ├── .gitignore           # Git ignore rules
@@ -154,12 +217,19 @@ spydirwebz/
 │   ├── data_attack_vectors.json
 │   ├── data_assets.json
 │   └── data_datatypes.json
-└── puzzles/             # Generated puzzle files
-    ├── web_1_draft.json       # Puzzle JSON files
-    ├── web_1_review.json      # Validation results
-    ├── web_2_draft.json
-    ├── web_2_review.json
-    └── ...
+├── puzzles/             # Generated puzzle files
+│   ├── web_1_draft.json       # Puzzle JSON files
+│   ├── web_1_review.json      # Validation results
+│   ├── web_2_draft.json
+│   ├── web_2_review.json
+│   └── ...
+└── website/             # Generated static website
+    ├── index.html            # Main page
+    ├── puzzle_*.html         # Individual puzzle pages
+    ├── styles.css            # Website styling
+    ├── script.js             # Main JavaScript
+    ├── puzzle-script.js      # Puzzle interaction logic
+    └── README.md             # Deployment guide
 ```
 
 ## 🧪 Validation Logic
