@@ -196,10 +196,10 @@ header h1 {
 
 /* Logic Grid Styles - Murdle-inspired elbow layout */
 .logic-grid-section {
-    background: #334155;
+    background: transparent;
     padding: 20px;
     border-radius: 8px;
-    border: 2px solid #475569;
+    border: none;
 }
 
 .logic-grid-section h2 {
@@ -218,8 +218,8 @@ header h1 {
 /* Murdle-style elbow grid */
 .murdle-elbow-grid {
     display: inline-block;
-    background: #1e293b;
-    border: 1px solid #475569;
+    background: transparent;
+    border: none;
 }
 
 /* Grid sections layout */
